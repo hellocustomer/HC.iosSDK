@@ -16,8 +16,8 @@ public final class HelloCustomerTouchPoint {
         modalType: QuestionModalType? = nil,
         resultDelegate: @escaping (TouchPointLoadResult) -> Void
     ) {
-        let modalType = modalType ?? computeProperModalType()
-        resultDelegate(.success(DialogModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
+        //let modalType = modalType ?? computeProperModalType()
+        resultDelegate(.success(BottomSheetModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
         return
 //        loadInternal(
 //            touchPointId: touchPointId,
