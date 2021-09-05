@@ -36,6 +36,8 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         return view
     }()
     
+    private lazy var scrollView: UIScrollView = UIScrollView()
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
@@ -121,15 +123,24 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
     
     private func constraintView() {
         view.addSubview(dimmedView)
-        view.addSubview(containerView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
 
         NSLayoutConstraint.activate([
             dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
             dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         
         ])
         constraintModalQuestionView(view.frame.size)
@@ -141,15 +152,29 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         
         NSLayoutConstraint.activate([
             modalQuestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            modalQuestionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             modalQuestionView.widthAnchor.constraint(equalToConstant: computeDialogWidth(size)),
-
+            
+            containerView.topAnchor.constraint(lessThanOrEqualTo: scrollView.topAnchor),
+            containerView.bottomAnchor.constraint(lessThanOrEqualTo: scrollView.bottomAnchor),
             
             containerView.topAnchor.constraint(equalTo: modalQuestionView.topAnchor),
             containerView.bottomAnchor.constraint(equalTo: modalQuestionView.bottomAnchor),
             containerView.leadingAnchor.constraint(equalTo: modalQuestionView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: modalQuestionView.trailingAnchor)
         ])
+        centerScrollContentIfNeeded()
+    }
+    
+    private func centerScrollContentIfNeeded() {
+        containerView.layoutIfNeeded()
+        scrollView.layoutIfNeeded()
+
+        if containerView.frame.height < view.frame.height {
+            let centerOffsetX = (scrollView.contentSize.width - scrollView.frame.size.width) / 2
+            let centerOffsetY = (scrollView.contentSize.height - scrollView.frame.size.height) / 2
+            let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
+            self.scrollView.setContentOffset(centerPoint, animated: true)
+        }
     }
     
     private func computeFrameForDialog(_ size: CGSize) -> CGRect {

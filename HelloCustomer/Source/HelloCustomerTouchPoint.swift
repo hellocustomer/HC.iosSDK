@@ -17,7 +17,7 @@ public final class HelloCustomerTouchPoint {
         resultDelegate: @escaping (TouchPointLoadResult) -> Void
     ) {
         //let modalType = modalType ?? computeProperModalType()
-        resultDelegate(.success(BottomSheetModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
+        resultDelegate(.success(DialogModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
         return
 //        loadInternal(
 //            touchPointId: touchPointId,
@@ -60,7 +60,7 @@ public final class HelloCustomerTouchPoint {
     
     private static func mockConfig() -> TouchpointConfig {
         return TouchpointConfig(
-            question: "How satisfied were you with your recent experience with Hello Customer app?",
+            question: "How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?",
             questionTextSize: 18,
             leftHint: "0 - Not likely",
             rightHint: "10 - Very much",

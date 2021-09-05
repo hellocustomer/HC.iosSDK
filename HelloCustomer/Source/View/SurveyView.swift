@@ -57,6 +57,6 @@ class SurveyView: UIView, WKNavigationDelegate {
     
 }
 
-protocol SurveyViewDelegate: class {
+protocol SurveyViewDelegate: AnyObject {
     func closeClicked()
 }
