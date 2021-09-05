@@ -17,7 +17,7 @@ public final class HelloCustomerTouchPoint {
         resultDelegate: @escaping (TouchPointLoadResult) -> Void
     ) {
         //let modalType = modalType ?? computeProperModalType()
-        resultDelegate(.success(DialogModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
+        resultDelegate(.success(BottomSheetModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
         return
 //        loadInternal(
 //            touchPointId: touchPointId,
@@ -55,7 +55,11 @@ public final class HelloCustomerTouchPoint {
     }
     
     static func computeProperModalType() -> QuestionModalType {
-        return .dialog
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .bottomSheet
+        } else {
+            return .dialog
+        }
     }
     
     private static func mockConfig() -> TouchpointConfig {
