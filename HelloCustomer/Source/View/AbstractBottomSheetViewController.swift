@@ -136,7 +136,6 @@ class AbstractBottomSheetViewController: UIViewController {
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
 
-        // containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: defaultHeight)
         containerViewBottomConstraint = containerView
             .bottomAnchor
             .constraint(

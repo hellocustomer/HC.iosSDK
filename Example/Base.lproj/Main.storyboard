@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,18 +17,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-PB-cvC">
-                                <rect key="frame" x="184" y="438" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="162" y="438" width="90" height="30"/>
+                                <state key="normal" title="Touchpoint 2"/>
                                 <connections>
-                                    <action selector="didButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jP2-uG-jfq"/>
+                                    <action selector="didTouchPoint2Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bkP-Mp-rhD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ai6-h5-lsT">
+                                <rect key="frame" x="163" y="384" width="88" height="30"/>
+                                <state key="normal" title="Touchpoint 1"/>
+                                <connections>
+                                    <action selector="didTouchPoint1Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KBl-hm-RDX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60M-5g-gBq">
+                                <rect key="frame" x="163" y="487" width="90" height="30"/>
+                                <state key="normal" title="Touchpoint 3"/>
+                                <connections>
+                                    <action selector="didTouchPoint3Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sQj-J7-qMR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ai6-h5-lsT" firstAttribute="centerX" secondItem="DdI-PB-cvC" secondAttribute="centerX" id="VHd-mE-3KB"/>
+                            <constraint firstItem="DdI-PB-cvC" firstAttribute="top" secondItem="ai6-h5-lsT" secondAttribute="bottom" constant="24" id="a50-fy-bfN"/>
                             <constraint firstItem="DdI-PB-cvC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b1j-qQ-4dO"/>
+                            <constraint firstItem="60M-5g-gBq" firstAttribute="top" secondItem="DdI-PB-cvC" secondAttribute="bottom" constant="20" id="cXr-CB-UVO"/>
                             <constraint firstItem="DdI-PB-cvC" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="fPa-CC-EWk"/>
+                            <constraint firstItem="60M-5g-gBq" firstAttribute="centerX" secondItem="DdI-PB-cvC" secondAttribute="centerX" id="y4I-yN-eMf"/>
                         </constraints>
                     </view>
                 </viewController>

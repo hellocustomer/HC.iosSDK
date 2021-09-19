@@ -12,6 +12,8 @@ class SurveyView: UIView, WKNavigationDelegate {
     
     weak var delegate: SurveyViewDelegate?
     
+    var touchpointConfig: ModalConfig!
+
     lazy var closeButton: UIButton = {
         let button = UIButton()
         let bundle = Bundle(for: type(of: self))
@@ -27,7 +29,6 @@ class SurveyView: UIView, WKNavigationDelegate {
         let webView = WKWebView()
         webView.navigationDelegate = self
         
-        webView.load(URLRequest(url: URL(string: "https://www.hellocustomer.com/en/")!))
         webView.allowsBackForwardNavigationGestures = true
         addSubview(webView)
         addSubview(closeButton)
@@ -49,6 +50,9 @@ class SurveyView: UIView, WKNavigationDelegate {
             webView.leadingAnchor.constraint(equalTo: leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            webView.load(URLRequest(url: self.touchpointConfig.questionaireUrlBuilder.buildQuestionaireUrl()))
+        }
     }
     
     @objc func onCloseClick() {

@@ -12,7 +12,7 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
 
     static let horizontalPadding = CGFloat(16)
     
-    private var touchpointConfig: TouchpointConfig!
+    private var touchpointConfig: ModalConfig!
     
     private weak var delegate: ModalQuestionViewDelegate?
     
@@ -36,7 +36,7 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
     lazy var questionLabel: UILabel = {
         let label = UILabel()
         label.text = touchpointConfig.question
-        label.font = .boldSystemFont(ofSize: CGFloat(touchpointConfig.questionTextSize))
+        label.font = touchpointConfig.questionFont
         label.textColor = .darkGray
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -80,7 +80,7 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
         return stackView
     }()
     
-    convenience init(touchpointConfig: TouchpointConfig, frame: CGRect, delegate: ModalQuestionViewDelegate) {
+    convenience init(touchpointConfig: ModalConfig, frame: CGRect, delegate: ModalQuestionViewDelegate) {
         self.init(frame: frame)
         self.touchpointConfig = touchpointConfig
         self.delegate = delegate
@@ -124,7 +124,7 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
     
 }
 
-protocol ModalQuestionViewDelegate: class {
+protocol ModalQuestionViewDelegate: AnyObject {
     func didValueChoosen(value: Int)
 }
 

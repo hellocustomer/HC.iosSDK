@@ -11,7 +11,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
     
     static func create(
         parent: UIViewController,
-        touchpointConfig: TouchpointConfig
+        touchpointConfig: ModalConfig
     ) -> DialogModalViewController {
         let vc = DialogModalViewController()
         vc.parentVC = parent
@@ -22,7 +22,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
     
     private let maxWidth = CGFloat(400)
     private var isShowingSurvey = false
-
+    
     lazy var dimmedView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -32,6 +32,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
     
     private lazy var surveyView: SurveyView = {
         let view = SurveyView()
+        view.touchpointConfig = touchpointConfig
         view.delegate = self
         return view
     }()
@@ -45,7 +46,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         return view
     }()
     
-    private var touchpointConfig: TouchpointConfig!
+    private var touchpointConfig: ModalConfig!
     private weak var parentVC: UIViewController?
     private lazy var modalQuestionView: ModalQuestionView = {
         return createModalQuestionView(view.frame.size)
@@ -64,6 +65,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
     
     func didValueChoosen(value: Int) {
         isShowingSurvey = true
+        touchpointConfig.questionaireUrlBuilder.userScore = value
         showSurveyPage()
     }
     
@@ -71,7 +73,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         containerView.addSubview(surveyView)
         modalQuestionView.removeFromSuperview()
         surveyView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         UIView.animate(withDuration: 0.4) {
             NSLayoutConstraint.activate([
                 self.surveyView.topAnchor.constraint(equalTo: self.containerView.topAnchor),
@@ -98,9 +100,18 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         if isShowingSurvey {
             return
         }
-        modalQuestionView.removeFromSuperview()
-        modalQuestionView = createModalQuestionView(size)
-        constraintModalQuestionView(size)
+        coordinator.animate(alongsideTransition: { [self] (UIViewControllerTransitionCoordinatorContext) -> Void in
+            UIView.performWithoutAnimation {
+                modalQuestionView.removeFromSuperview()
+                containerView.removeFromSuperview()
+                scrollView.addSubview(containerView)
+                modalQuestionView = createModalQuestionView(size)
+                constraintModalQuestionView(size)
+            }
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            
+        })
+        
     }
     
     @objc private func onCloseClick() {
@@ -129,8 +140,8 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-
-
+        
+        
         NSLayoutConstraint.activate([
             dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
             dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -141,7 +152,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        
+            
         ])
         constraintModalQuestionView(view.frame.size)
     }
@@ -162,19 +173,19 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
             containerView.leadingAnchor.constraint(equalTo: modalQuestionView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: modalQuestionView.trailingAnchor)
         ])
-        centerScrollContentIfNeeded()
+        centerScrollContentIfNeeded(size)
     }
     
-    private func centerScrollContentIfNeeded() {
+    private func centerScrollContentIfNeeded(_ size: CGSize) {
         containerView.layoutIfNeeded()
         scrollView.layoutIfNeeded()
-
-        if containerView.frame.height < view.frame.height {
-            let centerOffsetX = (scrollView.contentSize.width - scrollView.frame.size.width) / 2
-            let centerOffsetY = (scrollView.contentSize.height - scrollView.frame.size.height) / 2
+        
+        if containerView.frame.height < size.height {
+            let centerOffsetX = (modalQuestionView.frame.size.width - size.width) / 2
+            let centerOffsetY = (modalQuestionView.frame.size.height - size.height) / 2
             let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
-            self.scrollView.setContentOffset(centerPoint, animated: true)
-        }
+            self.scrollView.setContentOffset(centerPoint, animated: false)
+        } 
     }
     
     private func computeFrameForDialog(_ size: CGSize) -> CGRect {
@@ -188,7 +199,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         }
         return size.width - 30
     }
-        
+    
     
 }
 

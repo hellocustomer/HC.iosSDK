@@ -11,67 +11,42 @@ import UIKit
 public final class HelloCustomerTouchPoint {
     
     public static func load(
-        touchPointId: String,
+        config: HelloCustomerTouchPointConfig,
         viewController: UIViewController,
-        modalType: QuestionModalType? = nil,
-        resultDelegate: @escaping (TouchPointLoadResult) -> Void
+        resultDelegate: @escaping (Result<QuestionModal, Error>) -> Void
     ) {
-        //let modalType = modalType ?? computeProperModalType()
-        resultDelegate(.success(BottomSheetModalViewController.create(parent: viewController, touchpointConfig: mockConfig())))
-        return
-//        loadInternal(
-//            touchPointId: touchPointId,
-//            viewController: viewController,
-//            modalType: modalType,
-//            resultDelegate: resultDelegate
-//        )
+        loadInternal(
+            config: config,
+            viewController: viewController,
+            resultDelegate: resultDelegate
+        )
     }
     
     static func loadInternal(
-        touchPointId: String,
+        config: HelloCustomerTouchPointConfig,
         viewController: UIViewController,
-        modalType: QuestionModalType,
-        resultDelegate: @escaping (TouchPointLoadResult) -> Void,
+        resultDelegate: @escaping (Result<QuestionModal, Error>) -> Void,
         service: TouchPointService = TouchPointService()
     ) {
-        service.downloadTouchPointConfig(touchPointId: touchPointId) { result in
+        service.downloadTouchPointConfig(config: config) { result in
             switch result {
             case .success(let config):
-                let modal: QuestionModal
-                switch modalType {
-                case .bottomSheet:
-                    modal = BottomSheetModalViewController.create(parent: viewController, touchpointConfig: config)
-                case .dialog:
-                    modal = DialogModalViewController.create(parent: viewController, touchpointConfig: config)
+                DispatchQueue.main.async {
+                    let modal: QuestionModal
+                    switch config.modalType {
+                    case .bottomSheet:
+                        modal = BottomSheetModalViewController.create(parent: viewController, touchpointConfig: config)
+                    case .dialog:
+                        modal = DialogModalViewController.create(parent: viewController, touchpointConfig: config)
+                    }
+                    resultDelegate(.success(modal))
                 }
-            
-                resultDelegate(.success(modal))
-            case .error(let error):
-                resultDelegate(.error(error))
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    resultDelegate(.failure(error))
+                }
+            }
         }
-        
-        
-    }
-    }
-    
-    static func computeProperModalType() -> QuestionModalType {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .bottomSheet
-        } else {
-            return .dialog
-        }
-    }
-    
-    private static func mockConfig() -> TouchpointConfig {
-        return TouchpointConfig(
-            question: "How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?How satisfied were you with your recent experience with Hello Customer app?",
-            questionTextSize: 18,
-            leftHint: "0 - Not likely",
-            rightHint: "10 - Very much",
-            questionType: .nps,
-            buttonColor: "#CCFFFF",
-            questionaireUrl: "https://www.youtube.com/watch?v=EnE1hPlrRgc"
-        )
     }
     
 }

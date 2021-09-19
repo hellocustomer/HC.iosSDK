@@ -13,7 +13,7 @@ class BottomSheetModalViewController: AbstractBottomSheetViewController, Questio
     
     static func create(
         parent: UIViewController,
-        touchpointConfig: TouchpointConfig
+        touchpointConfig: ModalConfig
     ) -> BottomSheetModalViewController {
         let bottomSheetModalViewController = BottomSheetModalViewController()
         bottomSheetModalViewController.parentVC = parent
@@ -28,13 +28,14 @@ class BottomSheetModalViewController: AbstractBottomSheetViewController, Questio
     
     private lazy var surveyView: SurveyView = {
         let view = SurveyView()
+        view.touchpointConfig = touchpointConfig
         view.delegate = self
         return view
     }()
         
     private var isShowingSurvey = false
     private weak var parentVC: UIViewController?
-    private var touchpointConfig: TouchpointConfig!
+    private var touchpointConfig: ModalConfig!
     private var surveyViewConstraint: NSLayoutConstraint!
     
     func display() {
@@ -83,20 +84,27 @@ class BottomSheetModalViewController: AbstractBottomSheetViewController, Questio
     
     func didValueChoosen(value: Int) {
         isShowingSurvey = true
+        touchpointConfig.questionaireUrlBuilder.userScore = value
         showSurveyPage(size: self.view.frame.size)
     }
     
     private func showSurveyPage(size: CGSize) {
         containerView.addSubview(surveyView)
         surveyViewConstraint = surveyView.heightAnchor.constraint(equalToConstant: size.height)
-        modalQuestionView.removeFromSuperview()
         surveyView.translatesAutoresizingMaskIntoConstraints = false
 
+        NSLayoutConstraint.activate([
+            self.surveyView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor),
+            self.surveyView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
+            self.surveyView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)
+        ])
+        self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.4) {
+            self.modalQuestionView.removeFromSuperview()
+
             NSLayoutConstraint.activate([
                 self.surveyViewConstraint!,
                 self.surveyView.topAnchor.constraint(equalTo: self.containerView.topAnchor),
-                self.surveyView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor),
                 self.surveyView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
                 self.surveyView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)
             ])

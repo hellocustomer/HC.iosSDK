@@ -8,23 +8,22 @@
 import Foundation
 import UIKit
 
-
 class BottomHintLabelsView: UIView {
     
-    private var touchpointConfig: TouchpointConfig!
+    private var touchpointConfig: ModalConfig!
     
     lazy var leftLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 0.424, green: 0.459, blue: 0.49, alpha: 1)
-        label.font = .systemFont(ofSize: 12)
+        label.textColor = UIColor(touchpointConfig.hintTextColor)
+        label.font = touchpointConfig.hintFont
         label.text = touchpointConfig.leftHint
         return label
     }()
     
     lazy var rightLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 0.424, green: 0.459, blue: 0.49, alpha: 1)
-        label.font = .systemFont(ofSize: 12)
+        label.textColor = UIColor(touchpointConfig.hintTextColor)
+        label.font = touchpointConfig.hintFont
         label.text = touchpointConfig.rightHint
         return label
     }()
@@ -36,7 +35,7 @@ class BottomHintLabelsView: UIView {
         return stackView
     }()
     
-    convenience init(touchpointConfig: TouchpointConfig) {
+    convenience init(touchpointConfig: ModalConfig) {
         self.init(frame: CGRect())
         self.touchpointConfig = touchpointConfig
         setupView()

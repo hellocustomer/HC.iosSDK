@@ -13,7 +13,7 @@ class ScorePickerView: UIView {
     fileprivate static let spacing = CGFloat(8)
     fileprivate static let standardButtonSize = CGFloat(44)
     
-    private var touchpointConfig: TouchpointConfig!
+    private var touchpointConfig: ModalConfig!
     private weak var delegate: ScoreButtonDelegate?
     
     private lazy var topStackView: UIStackView = {
@@ -50,7 +50,7 @@ class ScorePickerView: UIView {
         return stackView
     }()
     
-    convenience init(touchpointConfig: TouchpointConfig, frame: CGRect, delegate: ScoreButtonDelegate) {
+    convenience init(touchpointConfig: ModalConfig, frame: CGRect, delegate: ScoreButtonDelegate) {
         self.init(frame: frame)
         self.touchpointConfig = touchpointConfig
         self.delegate = delegate
@@ -127,9 +127,13 @@ class ScorePickerView: UIView {
     
     private func createButtons(from: Int, to: Int) -> [ScoreButton] {
         var buttonsArray = [ScoreButton]()
-        let color = UIColor(hex: touchpointConfig.buttonColor) ?? UIColor(red: 0.914, green: 0.925, blue: 0.937, alpha: 1)
         for index in from...to {
-            let button = ScoreButton(number: index, color: color, delegate: delegate)
+            let button = ScoreButton(
+                number: index,
+                backgroundColor: UIColor(touchpointConfig.buttonBackgroundColor),
+                textColor: UIColor(touchpointConfig.buttonTextColor),
+                delegate: delegate
+            )
             NSLayoutConstraint.activate([
                 button.widthAnchor.constraint(equalToConstant: computeButtonSize()),
                 button.heightAnchor.constraint(equalToConstant: computeButtonSize())

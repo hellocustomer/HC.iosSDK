@@ -15,16 +15,17 @@ class ScoreButton: UIButton {
     
     convenience init(
         number: Int,
-        color: UIColor = UIColor(red: 0.914, green: 0.925, blue: 0.937, alpha: 1),
+        backgroundColor: UIColor,
+        textColor: UIColor,
         delegate: ScoreButtonDelegate?
     ) {
         self.init(frame: CGRect())
         self.clickDelegate = delegate
         self.number = number
         setTitle(String(number), for: .normal)
-        setTitleColor(UIColor.gray, for: .normal)
-        setBackgroundColor(color, forState: .normal)
-        setBackgroundColor(color.darker(), forState: .highlighted)
+        setTitleColor(textColor, for: .normal)
+        setBackgroundColor(backgroundColor, forState: .normal)
+        setBackgroundColor(backgroundColor.darker(), forState: .highlighted)
         layer.cornerRadius = 6
         clipsToBounds = true
         addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
@@ -44,6 +45,6 @@ class ScoreButton: UIButton {
     
 }
 
-protocol ScoreButtonDelegate: class {
+protocol ScoreButtonDelegate: AnyObject {
     func didClick(value: Int)
 }
