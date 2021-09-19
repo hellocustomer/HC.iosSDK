@@ -21,11 +21,30 @@ pod 'HelloCustomer', '~> 0.0.1'
 
 After you successfully installed sdk in your project you can request showing quesionaire in this way:
 ```swift
-    
-    @IBAction func didButtonClicked(_ sender: Any) {
-        HelloCustomerTouchPoint.load(                  // you can request loading questionaire data in any place 
-            touchPointId: "touchPointId",              // your touchpointId
-            viewController: self, 
+        
+    @IBAction func didButtonClicked(_ sender: Any) { // you can request loading questionaire data in any place eg. #viewDidLoad() and show when you want
+        let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "YY/MM/dd hh:mm"
+        
+        //Put metadata which you need to add
+        let customMetadata = [
+            "testDate": dateFormmater.string(from: Date()),
+            "userBattery": String(UIDevice.current.batteryLevel)
+        ]
+        
+        HelloCustomerTouchPoint.load( 
+            config: HelloCustomerTouchPointConfig(
+                authorization: "<YOUR AUTHORIZATION HEADER HERE>",
+                companyId: "<YOUR COMPANY_ID HERE>",
+                touchpointId: "<YOUR TOUCHPOINT_ID HERE>",
+                questionFont: UIFont(name: "Earwig Factory", size: UIFont.labelFontSize)!, //optional, default systemFont 14 will be used
+                hintFont: UIFont(name: "Comic Sans MS", size: UIFont.labelFontSize)!, //optional, default systemFont 10 will be used
+                metadata: customMetadata, //optional metadata for additional loging
+                respondentFirstName: "User first name", //optional user first name
+                respondentLastName: "Last name", //optional user last name
+                respondentEmailAddress: "email" //optional user email address
+            ),
+            viewController: self,
             resultDelegate: onTouchPointResult
         )
     }
