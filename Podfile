@@ -18,6 +18,7 @@ target 'HelloCustomer' do
   target 'HelloCustomerTests' do
     # Pods for testing
     pod 'SwiftLint'
+    pod "Cuckoo"
   end
 
 end

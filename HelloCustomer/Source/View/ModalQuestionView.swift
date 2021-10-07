@@ -37,7 +37,7 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
         let label = UILabel()
         label.text = touchpointConfig.question
         label.font = touchpointConfig.questionFont
-        label.textColor = .darkGray
+        label.textColor = .black
         label.numberOfLines = 0
         label.textAlignment = .center
         return label

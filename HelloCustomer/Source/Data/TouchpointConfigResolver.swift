@@ -24,6 +24,8 @@ class TouchpointConfigResolver {
     ) -> ModalConfig {
         let firstQuestion = resolveFirstQuestion(survey: survey)
         let targetDesign = resolveTargetDesign(question: firstQuestion, designs: designs)
+        config.questionaireUrlBuilder.questionaireLanguage = firstQuestion.languageCulture
+        
         return ModalConfig(
             question: firstQuestion.text,
             questionFont: config.questionFont,
@@ -32,6 +34,7 @@ class TouchpointConfigResolver {
             hintFont: config.hintFont,
             questionType: mapQuestionType(type: firstQuestion.type.name),
             buttonBackgroundColor: targetDesign.opinionsButtonBgColor,
+            showColorScaleOnButtons: targetDesign.opinionsUseColorScale,
             buttonTextColor: targetDesign.opinionsButtonTextColor,
             questionTextColor: targetDesign.opinionsQuestionsColor,
             hintTextColor: targetDesign.opinionsParagraphColor,

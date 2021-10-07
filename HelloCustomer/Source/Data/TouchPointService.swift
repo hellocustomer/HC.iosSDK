@@ -42,8 +42,7 @@ class TouchPointService {
                             )
                             resultDelegate(.success(config))
                         case .failure(let error):
-                        resultDelegate(.failure(error))
-
+                            resultDelegate(.failure(error))
                         }
                     })
                 case .failure(let error):

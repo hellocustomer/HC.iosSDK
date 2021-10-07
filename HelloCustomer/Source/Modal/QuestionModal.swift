@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol QuestionModal {
+public protocol QuestionModal: AnyObject {
     
     func display()
     

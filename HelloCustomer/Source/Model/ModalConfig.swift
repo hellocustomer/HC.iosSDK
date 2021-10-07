@@ -16,6 +16,7 @@ struct ModalConfig {
     let hintFont: UIFont
     let questionType: QuestionType
     let buttonBackgroundColor: String
+    let showColorScaleOnButtons: Bool
     let buttonTextColor: String
     let questionTextColor: String
     let hintTextColor: String

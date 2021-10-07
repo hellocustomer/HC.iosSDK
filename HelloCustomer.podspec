@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.author        = "HelloCustomer"
   s.platform      = :ios, "12.0"
   s.swift_version = "5.4"
+  s.resources = "HelloCustomer/*.xcassets"
   s.source        = {
     :git => "https://github.com/hellocustomer/HC.iosSDK.git",
     :tag => s.version.to_s

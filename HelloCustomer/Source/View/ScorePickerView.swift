@@ -15,6 +15,7 @@ class ScorePickerView: UIView {
     
     private var touchpointConfig: ModalConfig!
     private weak var delegate: ScoreButtonDelegate?
+    private let buttonColorResolver = ScoreButtonColorResolver()
     
     private lazy var topStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: computeValuesForTopStackView())
@@ -87,12 +88,12 @@ class ScorePickerView: UIView {
         switch questionType {
         case .ces:
             if questionType.shouldShowAllControllsInSingleLine(screenWidth: frame.width) {
-                views.append(contentsOf: createButtons(from: 0, to: 7))
+                views.append(contentsOf: createButtons(from: 1, to: 7))
             } else {
-                views.append(contentsOf: createButtons(from: 0, to: 4))
+                views.append(contentsOf: createButtons(from: 1, to: 4))
             }
         case .csat:
-            views.append(contentsOf: createButtons(from: 0, to: 5))
+            views.append(contentsOf: createButtons(from: 1, to: 5))
         case .nps:
             if questionType.shouldShowAllControllsInSingleLine(screenWidth: frame.width) {
                 views.append(contentsOf: createButtons(from: 0, to: 10))
@@ -130,8 +131,11 @@ class ScorePickerView: UIView {
         for index in from...to {
             let button = ScoreButton(
                 number: index,
-                backgroundColor: UIColor(touchpointConfig.buttonBackgroundColor),
-                textColor: UIColor(touchpointConfig.buttonTextColor),
+                backgroundColor: buttonColorResolver.resolveBackgroundColorForButton(
+                    buttonNumber: index,
+                    config: touchpointConfig
+                ),
+                textColor: buttonColorResolver.resolveTextColorForButton(config: touchpointConfig),
                 delegate: delegate
             )
             NSLayoutConstraint.activate([
@@ -142,7 +146,7 @@ class ScorePickerView: UIView {
         }
         return buttonsArray
     }
-
+    
     private func computeButtonSize() -> CGFloat {
         let spaceRequiredForOneButton = ScorePickerView.spacing + ScorePickerView.standardButtonSize
         if frame.width / 6 > spaceRequiredForOneButton {
