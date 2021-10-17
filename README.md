@@ -17,7 +17,7 @@ Min ios version: iOS 12
 pod 'HelloCustomer', '~> 0.0.1'
 ```
 
-## Usage (TBD)
+## Usage
 
 After you successfully installed sdk in your project you can request showing quesionaire in this way:
 ```swift
