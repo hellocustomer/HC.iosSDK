@@ -37,8 +37,8 @@ After you successfully installed sdk in your project you can request showing que
                 authorization: "<YOUR AUTHORIZATION HEADER HERE>",
                 companyId: "<YOUR COMPANY_ID HERE>",
                 touchpointId: "<YOUR TOUCHPOINT_ID HERE>",
-                questionFont: UIFont(name: "Earwig Factory", size: UIFont.labelFontSize)!, //optional, default systemFont 14 will be used
-                hintFont: UIFont(name: "Comic Sans MS", size: UIFont.labelFontSize)!, //optional, default systemFont 10 will be used
+                questionFont: UIFont(name: "Earwig Factory", size: UIFont.labelFontSize)!, //optional, default boldSystemFont 18 will be used
+                hintFont: UIFont(name: "Comic Sans MS", size: UIFont.labelFontSize)!, //optional, default systemFont 14 will be used
                 metadata: customMetadata, //optional metadata for additional loging
                 respondentFirstName: "User first name", //optional user first name
                 respondentLastName: "Last name", //optional user last name
