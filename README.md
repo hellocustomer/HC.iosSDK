@@ -60,5 +60,3 @@ After you successfully installed sdk in your project you can request showing que
 
 ```
 
-More examples will be added when libary will be stable
-
