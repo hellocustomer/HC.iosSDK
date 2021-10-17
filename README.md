@@ -3,9 +3,9 @@
 
 HelloCustomer touchpoint sdk for iOS plaftorm. 
 
-## Requirements (TBD)
+## Requirements
 
-Min ios version, min swift version and min xcode version
+Min ios version: iOS 12
 
 ## Installation
 
