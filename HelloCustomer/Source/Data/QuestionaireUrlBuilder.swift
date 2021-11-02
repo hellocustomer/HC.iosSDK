@@ -21,9 +21,7 @@ class QuestionaireUrlBuilder {
     let touchpointId: String
     var userScore: Int?
     
-    internal lazy var questionaireLanguage: String = {
-        return userLocaleProvider.getUserLocaleCode()
-    }()
+    internal var questionaireLanguage: String!
     
     internal init(
         userLocaleProvider: UserLocaleProvider = UserLocaleProvider(),
@@ -59,7 +57,7 @@ class QuestionaireUrlBuilder {
         if let userScore = userScore {
             queryItems.append(URLQueryItem(name: "entry.score", value: String(userScore)))
         }
-        var urlComponents = URLComponents(string: "https://\(baseOpinionsUrl)/\(questionaireLanguage)/AskAnywhereCampaign/\(companyId)/\(touchpointId)")!
+        var urlComponents = URLComponents(string: "https://\(baseOpinionsUrl)/\(questionaireLanguage!)/AskAnywhereCampaign/\(companyId)/\(touchpointId)")!
         urlComponents.queryItems = queryItems
 
         return urlComponents.url!

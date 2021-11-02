@@ -10,6 +10,11 @@ struct SurveyQuestionDto: Codable {
     let hasbeenArchived: Bool
     let label1: String?
     let label2: String?
+    let label3: String?
+    let label4: String?
+    let label5: String?
+    let label6: String?
+    let label7: String?
     let rateType: Int?
     let sortOrder: Int
     let type: SurveyQuestionTypeDto
@@ -26,6 +31,11 @@ struct SurveyQuestionDto: Codable {
         case hasbeenArchived = "hasbeenArchived"
         case label1 = "label1"
         case label2 = "label2"
+        case label3 = "label3"
+        case label4 = "label4"
+        case label5 = "label5"
+        case label6 = "label6"
+        case label7 = "label7"
         case rateType = "rateType"
         case sortOrder = "sortOrder"
         case type = "type"

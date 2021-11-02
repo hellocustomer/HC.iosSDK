@@ -24,6 +24,7 @@
 		AE8ABB6826B52C03005E56DF /* HCLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB6726B52C03005E56DF /* HCLogger.swift */; };
 		AE8ABB6F26B5712F005E56DF /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB6E26B5712F005E56DF /* SurveyView.swift */; };
 		AE8ABB7926B69CB2005E56DF /* TouchPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */; };
+		AEA19E87272C070E003C49C3 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA19E86272C070E003C49C3 /* UILabel.swift */; };
 		AEA9D34A26F5F98B00CE81C2 /* TouchpointConfigResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */; };
 		AEA9D34C26F5F9BC00CE81C2 /* UserLocaleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */; };
 		AEA9D34E26F6221900CE81C2 /* UIColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34D26F6221900CE81C2 /* UIColorInputError.swift */; };
@@ -89,6 +90,7 @@
 		AE8ABB6726B52C03005E56DF /* HCLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLogger.swift; sourceTree = "<group>"; };
 		AE8ABB6E26B5712F005E56DF /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointService.swift; sourceTree = "<group>"; };
+		AEA19E86272C070E003C49C3 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchpointConfigResolver.swift; sourceTree = "<group>"; };
 		AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocaleProvider.swift; sourceTree = "<group>"; };
 		AEA9D34D26F6221900CE81C2 /* UIColorInputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorInputError.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				AEE42E4226B08FB90019D2D8 /* UIColor.swift */,
 				AEA9D34D26F6221900CE81C2 /* UIColorInputError.swift */,
+				AEA19E86272C070E003C49C3 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				AE8ABB6826B52C03005E56DF /* HCLogger.swift in Sources */,
 				AECFFC1B26F5CF6D00657C12 /* SurveyLanguageDesignDto.swift in Sources */,
 				AE00B44926AC3834002D200C /* ModalQuestionView.swift in Sources */,
+				AEA19E87272C070E003C49C3 /* UILabel.swift in Sources */,
 				AE00B4A126ADC35F002D200C /* BottomHintLabelsView.swift in Sources */,
 				AE8ABB6226B52B2B005E56DF /* DialogModalViewController.swift in Sources */,
 				AE8ABB7926B69CB2005E56DF /* TouchPointService.swift in Sources */,
@@ -1014,6 +1018,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N924Z73LYH;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1035,6 +1040,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N924Z73LYH;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

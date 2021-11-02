@@ -52,6 +52,14 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
         return createModalQuestionView(view.frame.size)
     }()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+           return .darkContent
+        } else {
+            return .default
+        }
+    }
+    
     func display() {
         guard let parentVC = parentVC else {
             HCLogger.logD("parrentVC is nil")
@@ -93,6 +101,7 @@ class DialogModalViewController: UIViewController, QuestionModal, ModalQuestionV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         constraintView()
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

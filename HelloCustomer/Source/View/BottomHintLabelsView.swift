@@ -14,7 +14,7 @@ class BottomHintLabelsView: UIView {
     
     lazy var leftLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(touchpointConfig.hintTextColor)
+        label.textColor = touchpointConfig.hintTextColor
         label.font = touchpointConfig.hintFont
         label.text = touchpointConfig.leftHint
         return label
@@ -22,7 +22,7 @@ class BottomHintLabelsView: UIView {
     
     lazy var rightLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(touchpointConfig.hintTextColor)
+        label.textColor = touchpointConfig.hintTextColor
         label.font = touchpointConfig.hintFont
         label.text = touchpointConfig.rightHint
         return label

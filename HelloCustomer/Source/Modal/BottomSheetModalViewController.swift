@@ -38,6 +38,19 @@ class BottomSheetModalViewController: AbstractBottomSheetViewController, Questio
     private var touchpointConfig: ModalConfig!
     private var surveyViewConstraint: NSLayoutConstraint!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+           return .darkContent
+        } else {
+            return .default
+        }
+    }
+    
     func display() {
         guard let parentVC = parentVC else {
             HCLogger.logD("parrentVC is nil")
@@ -45,10 +58,7 @@ class BottomSheetModalViewController: AbstractBottomSheetViewController, Questio
         }
         parentVC.present(self, animated: false, completion: {})
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

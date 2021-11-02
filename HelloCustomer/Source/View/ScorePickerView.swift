@@ -128,31 +128,61 @@ class ScorePickerView: UIView {
     
     private func createButtons(from: Int, to: Int) -> [ScoreButton] {
         var buttonsArray = [ScoreButton]()
+        let buttonSize = computeButtonSize()
+        var fontSize: CGFloat? = nil
+        if (touchpointConfig.labeledQuestionView) {
+            fontSize = touchpointConfig.buttonLabels.values.map{ String($0).idealFontSize(font: UIFont.systemFont(ofSize: 14), width: buttonSize.width - 12, minSize: 12) }.min()
+        }
+
         for index in from...to {
+            var customLabel: String? = nil
+            if touchpointConfig.labeledQuestionView {
+                customLabel = touchpointConfig.buttonLabels[index]
+            }
+             
             let button = ScoreButton(
                 number: index,
+                customLabel: customLabel,
                 backgroundColor: buttonColorResolver.resolveBackgroundColorForButton(
                     buttonNumber: index,
                     config: touchpointConfig
                 ),
                 textColor: buttonColorResolver.resolveTextColorForButton(config: touchpointConfig),
+                fontSize: fontSize,
                 delegate: delegate
             )
             NSLayoutConstraint.activate([
-                button.widthAnchor.constraint(equalToConstant: computeButtonSize()),
-                button.heightAnchor.constraint(equalToConstant: computeButtonSize())
+                button.widthAnchor.constraint(equalToConstant: buttonSize.width),
+                button.heightAnchor.constraint(equalToConstant: buttonSize.height)
             ])
             buttonsArray.append(button)
         }
         return buttonsArray
     }
     
-    private func computeButtonSize() -> CGFloat {
+    private func computeButtonSize() -> CGSize {
         let spaceRequiredForOneButton = ScorePickerView.spacing + ScorePickerView.standardButtonSize
-        if frame.width / 6 > spaceRequiredForOneButton {
-            return ScorePickerView.standardButtonSize
+        if (touchpointConfig.labeledQuestionView){
+            let buttonsInSingleLine: CGFloat
+            if (touchpointConfig.questionType.shouldShowAllControllsInSingleLine(screenWidth: frame.width)) {
+                buttonsInSingleLine = 7
+            } else {
+                buttonsInSingleLine = 4
+            }
+            var spaceRequiredForOneLabeledButton = (frame.width - (buttonsInSingleLine * ScorePickerView.spacing)) / buttonsInSingleLine
+            
+            if spaceRequiredForOneLabeledButton / 2 > ScorePickerView.standardButtonSize {
+                spaceRequiredForOneLabeledButton = ScorePickerView.standardButtonSize * 2
+            }
+            return CGSize(width: spaceRequiredForOneLabeledButton, height: ScorePickerView.standardButtonSize)
         } else {
-            return (frame.width - 6 * ScorePickerView.spacing) / 6
+            if frame.width / 6 > spaceRequiredForOneButton {
+                let size = ScorePickerView.standardButtonSize
+                return CGSize(width: size, height: size)
+            } else {
+                let size = (frame.width - 6 * ScorePickerView.spacing) / 6
+                return CGSize(width: size, height: size)
+            }
         }
     }
     
@@ -182,4 +212,24 @@ fileprivate extension QuestionType {
         }
     }
     
+}
+
+extension String {
+    func idealFontSize(font: UIFont, width: CGFloat, minSize: CGFloat? = nil) -> CGFloat {
+        let baseFontSize = CGFloat(10)
+        let textSize = self.size(withAttributes: [NSAttributedString.Key.font: font.withSize(baseFontSize)])
+        let ratio = width / textSize.width
+        let ballparkSize = baseFontSize * ratio
+        let stoppingSize = ballparkSize / CGFloat(2)
+        var idealSize = ballparkSize
+        while (idealSize > stoppingSize && self.size(withAttributes: [NSAttributedString.Key.font: font.withSize(idealSize)]).width > width) {
+            idealSize -= 0.5
+        }
+        if let minSize = minSize {
+            if idealSize > minSize {
+                return minSize
+            }
+        }
+        return idealSize
+    }
 }

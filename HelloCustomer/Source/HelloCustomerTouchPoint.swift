@@ -28,6 +28,7 @@ public final class HelloCustomerTouchPoint {
         resultDelegate: @escaping (Result<QuestionModal, Error>) -> Void,
         service: TouchPointService = TouchPointService()
     ) {
+        HCLogger.logD("Downloading touchpoint config")
         service.downloadTouchPointConfig(config: config) { result in
             switch result {
             case .success(let config):
@@ -40,6 +41,7 @@ public final class HelloCustomerTouchPoint {
                         modal = DialogModalViewController.create(parent: viewController, touchpointConfig: config)
                     }
                     resultDelegate(.success(modal))
+                    HCLogger.logD("Downloaded touchpoint config successfully")
                 }
             case .failure(let error):
                 DispatchQueue.main.async {

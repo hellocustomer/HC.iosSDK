@@ -15,14 +15,22 @@ class ScoreButton: UIButton {
     
     convenience init(
         number: Int,
+        customLabel: String? = nil,
         backgroundColor: UIColor,
         textColor: UIColor,
+        fontSize: CGFloat? = nil,
         delegate: ScoreButtonDelegate?
     ) {
         self.init(frame: CGRect())
         self.clickDelegate = delegate
         self.number = number
-        setTitle(String(number), for: .normal)
+        let label = customLabel ?? String(number)
+        if let fontSize = fontSize {
+            titleLabel?.font = titleLabel?.font.withSize(fontSize)
+            titleLabel?.numberOfLines = 2
+        }
+        titleLabel?.textAlignment = .center
+        setTitle(label, for: .normal)
         setTitleColor(textColor, for: .normal)
         setBackgroundColor(backgroundColor, forState: .normal)
         setBackgroundColor(backgroundColor.darker(), forState: .highlighted)
@@ -48,3 +56,5 @@ class ScoreButton: UIButton {
 protocol ScoreButtonDelegate: AnyObject {
     func didClick(value: Int)
 }
+
+

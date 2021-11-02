@@ -56,13 +56,16 @@ class TouchPointService {
         config: HelloCustomerTouchPointConfig,
         resultDelegate: @escaping (Result<SurveyDto, Error>) -> Void
     ) {
+        HCLogger.logD("Downloading touchpoint questions")
         URLSession.shared.dataTask(with: buildQuestionsRequest(config)) { (data, _, error) -> Void in
             if error == nil && data != nil {
                 do {
+                    HCLogger.logD("Downloaded touchpoint questions successfully")
                     let decoder = JSONDecoder()
                     let survey = try decoder.decode([SurveyDto].self, from: data!)
                     resultDelegate(.success(survey.first!))
                 } catch {
+                    HCLogger.logE(error, "Downloaded touchpoint questions failrue")
                     resultDelegate(.failure(error))
                 }
             }
@@ -73,13 +76,16 @@ class TouchPointService {
         config: HelloCustomerTouchPointConfig,
         resultDelegate: @escaping (Result<[SurveyLanguageDesignDto], Error>) -> Void
     ) {
+        HCLogger.logD("Downloading touchpoint designs")
         URLSession.shared.dataTask(with: buildLanguageDesignRequest(config)) { (data, _, error) -> Void in
             if error == nil && data != nil {
                 do {
+                    HCLogger.logD("Downloaded touchpoint designs")
                     let decoder = JSONDecoder()
                     let designs = try decoder.decode([SurveyLanguageDesignDto].self, from: data!)
                     resultDelegate(.success(designs))
                 } catch {
+                    HCLogger.logE(error, "Downloaded touchpoint designs failrue")
                     resultDelegate(.failure(error))
                 }
             }

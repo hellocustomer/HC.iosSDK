@@ -33,14 +33,43 @@ class TouchpointConfigResolver {
             rightHint: firstQuestion.label2,
             hintFont: config.hintFont,
             questionType: mapQuestionType(type: firstQuestion.type.name),
-            buttonBackgroundColor: targetDesign.opinionsButtonBgColor,
+            buttonBackgroundColor: UIColor(targetDesign.opinionsButtonBgColor),
             showColorScaleOnButtons: targetDesign.opinionsUseColorScale,
-            buttonTextColor: targetDesign.opinionsButtonTextColor,
-            questionTextColor: targetDesign.opinionsQuestionsColor,
-            hintTextColor: targetDesign.opinionsParagraphColor,
+            buttonTextColor: UIColor(targetDesign.opinionsButtonTextColor),
+            questionTextColor: UIColor(targetDesign.opinionsQuestionsColor),
+            hintTextColor: UIColor(targetDesign.opinionsParagraphColor),
+            rateType: firstQuestion.rateType,
+            buttonLabels: resolveButtonLabels(firstQuestion),
             modalType: resolveModalType(surveyType: targetDesign.surveyType),
             questionaireUrlBuilder: config.questionaireUrlBuilder
         )
+    }
+    
+    private func resolveButtonLabels(_ question: SurveyQuestionDto) -> [Int: String] {
+        var result = [Int: String]()
+        if let question1 = question.label1{
+            result[1] = question1
+        }
+        if let question2 = question.label2{
+            result[2] = question2
+        }
+        if let question3 = question.label3{
+            result[3] = question3
+        }
+        if let question4 = question.label4{
+            result[4] = question4
+        }
+        if let question5 = question.label5{
+            result[5] = question5
+        }
+        if let question6 = question.label6{
+            result[6] = question6
+        }
+        if let question7 = question.label7{
+            result[7] = question7
+        }
+        
+        return result
     }
     
     private func resolveModalType(surveyType: Int?) -> QuestionModalType {

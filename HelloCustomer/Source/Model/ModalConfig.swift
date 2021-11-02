@@ -15,13 +15,21 @@ struct ModalConfig {
     let rightHint: String?
     let hintFont: UIFont
     let questionType: QuestionType
-    let buttonBackgroundColor: String
+    let buttonBackgroundColor: UIColor
     let showColorScaleOnButtons: Bool
-    let buttonTextColor: String
-    let questionTextColor: String
-    let hintTextColor: String
+    let buttonTextColor: UIColor
+    let questionTextColor: UIColor
+    let hintTextColor: UIColor
+    let rateType: Int?
+    let buttonLabels: [Int : String]
     let modalType: QuestionModalType
     let questionaireUrlBuilder: QuestionaireUrlBuilder
     
     var userScore: Int? = nil
+    
+    var labeledQuestionView: Bool {
+        get {
+            self.rateType == 4 && self.questionType == .ces
+        }
+    }
 }

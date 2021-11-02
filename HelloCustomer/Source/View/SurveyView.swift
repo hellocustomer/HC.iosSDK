@@ -13,6 +13,8 @@ class SurveyView: UIView, WKNavigationDelegate {
     weak var delegate: SurveyViewDelegate?
     
     var touchpointConfig: ModalConfig!
+    
+    private var wasInitialzed = false
 
     lazy var closeButton: UIButton = {
         let button = UIButton()
@@ -20,14 +22,22 @@ class SurveyView: UIView, WKNavigationDelegate {
         let image = UIImage(named: "close", in: bundle, compatibleWith: nil)
         button.setImage(image, for: .normal)
         button.imageView?.tintColor = UIColor(red: 0.678, green: 0.71, blue: 0.741, alpha: 1)
-        
+        button.isHidden = true
         return button
     }()
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
+        if !wasInitialzed {
+            wasInitialzed = true
+            setupWebView()
+        }
+    }
+    
+    private func setupWebView(){
         let webView = WKWebView()
         webView.navigationDelegate = self
+        webView.backgroundColor = UIColor.white
         
         webView.allowsBackForwardNavigationGestures = true
         addSubview(webView)
@@ -52,6 +62,9 @@ class SurveyView: UIView, WKNavigationDelegate {
         ])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             webView.load(URLRequest(url: self.touchpointConfig.questionaireUrlBuilder.buildQuestionaireUrl()))
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.closeButton.isHidden = false
         }
     }
     

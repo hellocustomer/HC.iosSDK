@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ModalQuestionView: UIView, ScoreButtonDelegate {
-
+    
     static let horizontalPadding = CGFloat(16)
     
     private var touchpointConfig: ModalConfig!
@@ -52,6 +52,9 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
     }()
     
     lazy var bottomHintsView: UIView = {
+        if touchpointConfig.labeledQuestionView{
+            return UIView()
+        }
         let labelsView = BottomHintLabelsView(touchpointConfig: touchpointConfig)
         return labelsView
     }()
@@ -66,13 +69,13 @@ class ModalQuestionView: UIView, ScoreButtonDelegate {
             spacer2.heightAnchor.constraint(equalToConstant: 8)
         ])
         let stackView = UIStackView(arrangedSubviews: [
-                                        closeButtonStackView,
-                                        spacer0,
-                                        questionLabel,
-                                        spacer1,
-                                        numberPicker,
-                                        spacer2,
-                                        bottomHintsView
+            closeButtonStackView,
+            spacer0,
+            questionLabel,
+            spacer1,
+            numberPicker,
+            spacer2,
+            bottomHintsView
         ]
         )
         stackView.axis = .vertical

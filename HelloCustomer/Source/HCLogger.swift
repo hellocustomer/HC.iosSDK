@@ -9,8 +9,13 @@ import Foundation
 
 class HCLogger {
     
-    static func logD(_ items: Any..., separator: String = " ", terminator: String = "\n") {
-        print(items, separator: separator, terminator: terminator)
+    static func logD(_ message: String) {
+        NSLog(message)
+    }
+    
+    static func logE(_ error: Error,_ message: String = ""){
+        NSLog(message)
+        print(error)
     }
         
 }

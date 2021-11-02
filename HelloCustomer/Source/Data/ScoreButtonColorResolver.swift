@@ -21,7 +21,7 @@ class ScoreButtonColorResolver {
         config: ModalConfig
     ) -> UIColor {
         if !config.showColorScaleOnButtons {
-            return UIColor(config.buttonTextColor)
+            return config.buttonTextColor
         } else {
             return UIColor.white
         }
@@ -32,7 +32,7 @@ class ScoreButtonColorResolver {
         config: ModalConfig
     ) -> UIColor {
         if !config.showColorScaleOnButtons {
-            return UIColor(config.buttonBackgroundColor)
+            return config.buttonBackgroundColor
         }
         switch config.questionType {
         case .ces:

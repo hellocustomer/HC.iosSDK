@@ -14,8 +14,8 @@
             filePath = "HelloCustomer/Source/View/ModalQuestionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "contentStackView"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "HelloCustomer/Source/View/ModalQuestionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "computeRequiredHeight(parentWidth:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "HelloCustomer/Source/HelloCustomerTouchPoint.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "loadInternal(config:viewController:resultDelegate:service:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "HelloCustomer/Source/Modal/DialogModalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "constraintView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -82,38 +82,22 @@
             endingLineNumber = "49"
             landmarkName = "downloadTouchPointConfig(config:resultDelegate:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9D3D603D-E8E0-417D-A2F8-CF1B22BD9D7B - ad57670446748581"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;HelloCustomer.SurveyDto, Swift.Error&gt;) -&gt; () in HelloCustomer.TouchPointService.downloadTouchPointConfig(config: HelloCustomer.HelloCustomerTouchPointConfig, resultDelegate: (Swift.Result&lt;HelloCustomer.ModalConfig, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "HelloCustomer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "525">
-               </Location>
-               <Location
-                  uuid = "9D3D603D-E8E0-417D-A2F8-CF1B22BD9D7B - ad57670446748581"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;HelloCustomer.SurveyDto, Swift.Error&gt;) -&gt; () in HelloCustomer.TouchPointService.downloadTouchPointConfig(config: HelloCustomer.HelloCustomerTouchPointConfig, resultDelegate: (Swift.Result&lt;HelloCustomer.ModalConfig, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "HelloCustomer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "544">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C04CA66-150A-40E0-BDCC-72979FB5B6C5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HelloCustomer/Source/View/SurveyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "setupWebView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
