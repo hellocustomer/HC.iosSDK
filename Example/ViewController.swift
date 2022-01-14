@@ -10,6 +10,27 @@ import HelloCustomer
 
 class ViewController: UIViewController {
     
+    private lazy var touchpointDict = {
+        NSDictionary(contentsOfFile: Bundle.main.path(forResource: "touchpoint", ofType: "plist")!) as! Dictionary<String, AnyObject>
+    }()
+    
+    private lazy var hcAuthToken = {
+        touchpointDict["HcAuthToken"] as! String
+    }()
+    
+    private lazy var companyId: UUID = {
+        UUID.init(uuidString: touchpointDict["HcCompanyId"] as! String)
+    }()!
+    
+    private lazy var touchpoint1Id: UUID = {
+        UUID.init(uuidString: touchpointDict["HcTouchpoint1Id"] as! String)
+    }()!
+    
+    private lazy var touchpoint2Id: UUID = {
+        UUID.init(uuidString: touchpointDict["HcTouchpoint2Id"] as! String)
+    }()!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIDevice.current.isBatteryMonitoringEnabled = true
@@ -18,9 +39,9 @@ class ViewController: UIViewController {
     @IBAction func didTouchPoint1Clicked(_ sender: Any) {
         HelloCustomerTouchPoint.load(
             config: HelloCustomerTouchPointConfig(
-                authorization: "eyJhbGciOiAiSFM1MTIiLCAidHlwIjogIkpXVCJ9.eyJhdWQiOiJhNDk2NTY1MC03MGVhLTRhZmMtOTBlOS01YTJmZjRmNzFjMjkiLCJzdWIiOiJlNGE2ZmNkZi0yYmE3LTQ3ZDQtYTA0NS0wNTAyZmI2ZTNmMGYiLCJpc3MiOiJodHRwczovL2hlbGxvY3VzdG9tZXIuY29tIiwiaWF0IjoxNjMxNzkyMjAzLCJleHAiOjE2NjMzMjgxNDUsIm1kIjp7InByIjp7ImExciI6ZmFsc2UsImFtciI6ZmFsc2UsInJiZSI6ZmFsc2UsInJ1ZSI6ZmFsc2UsInJyIjpmYWxzZSwiZ25wcyI6dHJ1ZSwiZ2NlcyI6dHJ1ZSwiZ2NzYXQiOnRydWUsImFhbnN3Ijp0cnVlfSwiaXAiOm51bGwsInRwaWRzIjpbIjIxY2VjYWI0LTljNjEtNDk0OC05MjNkLWQ2YjM4MjFiMzQzOSIsIjg1ZDNhYWQ3LWYxNTUtNDBhZS1iODM1LWU1MTM3ZDdiY2VjYiIsImQ1ZjA3NWI3LTg1NWUtNDQ1My04NmJiLWU4MTYxNDhmNzM2ZSJdfX0=.92NqRJ9qWh2WA8S/XbASdh+2lOPcrCMgoQKoy3+iCFR56ApiyQjW8hJ9b0URbkwKEvZKBv6pL4heNB9jc1NWyA==",
-                companyId: "a4965650-70ea-4afc-90e9-5a2ff4f71c29",
-                touchpointId: "85d3aad7-f155-40ae-b835-e5137d7bcecb"
+                authorization: hcAuthToken,
+                companyId: companyId,
+                touchpointId: touchpoint1Id
             ),
             viewController: self,
             resultDelegate: onTouchPointResult
@@ -37,9 +58,9 @@ class ViewController: UIViewController {
         
         HelloCustomerTouchPoint.load(
             config: HelloCustomerTouchPointConfig(
-                authorization: "eyJhbGciOiAiSFM1MTIiLCAidHlwIjogIkpXVCJ9.eyJhdWQiOiJhNDk2NTY1MC03MGVhLTRhZmMtOTBlOS01YTJmZjRmNzFjMjkiLCJzdWIiOiJlNGE2ZmNkZi0yYmE3LTQ3ZDQtYTA0NS0wNTAyZmI2ZTNmMGYiLCJpc3MiOiJodHRwczovL2hlbGxvY3VzdG9tZXIuY29tIiwiaWF0IjoxNjMxNzkyMjAzLCJleHAiOjE2NjMzMjgxNDUsIm1kIjp7InByIjp7ImExciI6ZmFsc2UsImFtciI6ZmFsc2UsInJiZSI6ZmFsc2UsInJ1ZSI6ZmFsc2UsInJyIjpmYWxzZSwiZ25wcyI6dHJ1ZSwiZ2NlcyI6dHJ1ZSwiZ2NzYXQiOnRydWUsImFhbnN3Ijp0cnVlfSwiaXAiOm51bGwsInRwaWRzIjpbIjIxY2VjYWI0LTljNjEtNDk0OC05MjNkLWQ2YjM4MjFiMzQzOSIsIjg1ZDNhYWQ3LWYxNTUtNDBhZS1iODM1LWU1MTM3ZDdiY2VjYiIsImQ1ZjA3NWI3LTg1NWUtNDQ1My04NmJiLWU4MTYxNDhmNzM2ZSJdfX0=.92NqRJ9qWh2WA8S/XbASdh+2lOPcrCMgoQKoy3+iCFR56ApiyQjW8hJ9b0URbkwKEvZKBv6pL4heNB9jc1NWyA==",
-                companyId: "a4965650-70ea-4afc-90e9-5a2ff4f71c29",
-                touchpointId: "d5f075b7-855e-4453-86bb-e816148f736e",
+                authorization: hcAuthToken,
+                companyId: companyId,
+                touchpointId: touchpoint2Id,
                 questionFont: UIFont(name: "Earwig Factory", size: UIFont.labelFontSize)!,
                 hintFont: UIFont(name: "Comic Sans MS", size: UIFont.labelFontSize)!,
                 metadata: customMetadata,
@@ -53,15 +74,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTouchPoint3Clicked(_ sender: Any) {
-        HelloCustomerTouchPoint.load(
-            config: HelloCustomerTouchPointConfig(
-                authorization: "eyJhbGciOiAiSFM1MTIiLCAidHlwIjogIkpXVCJ9.eyJhdWQiOiJhNDk2NTY1MC03MGVhLTRhZmMtOTBlOS01YTJmZjRmNzFjMjkiLCJzdWIiOiJlNGE2ZmNkZi0yYmE3LTQ3ZDQtYTA0NS0wNTAyZmI2ZTNmMGYiLCJpc3MiOiJodHRwczovL2hlbGxvY3VzdG9tZXIuY29tIiwiaWF0IjoxNjMxNzkyMjAzLCJleHAiOjE2NjMzMjgxNDUsIm1kIjp7InByIjp7ImExciI6ZmFsc2UsImFtciI6ZmFsc2UsInJiZSI6ZmFsc2UsInJ1ZSI6ZmFsc2UsInJyIjpmYWxzZSwiZ25wcyI6dHJ1ZSwiZ2NlcyI6dHJ1ZSwiZ2NzYXQiOnRydWUsImFhbnN3Ijp0cnVlfSwiaXAiOm51bGwsInRwaWRzIjpbIjIxY2VjYWI0LTljNjEtNDk0OC05MjNkLWQ2YjM4MjFiMzQzOSIsIjg1ZDNhYWQ3LWYxNTUtNDBhZS1iODM1LWU1MTM3ZDdiY2VjYiIsImQ1ZjA3NWI3LTg1NWUtNDQ1My04NmJiLWU4MTYxNDhmNzM2ZSJdfX0=.92NqRJ9qWh2WA8S/XbASdh+2lOPcrCMgoQKoy3+iCFR56ApiyQjW8hJ9b0URbkwKEvZKBv6pL4heNB9jc1NWyA==",
-                companyId: "a4965650-70ea-4afc-90e9-5a2ff4f71c29",
-                touchpointId: "21cecab4-9c61-4948-923d-d6b3821b3439"
-            ),
-            viewController: self,
-            resultDelegate: onTouchPointResult
-        )
+//        HelloCustomerTouchPoint.load(
+//            config: HelloCustomerTouchPointConfig(
+//                authorization: "eyJhbGciOiAiSFM1MTIiLCAidHlwIjogIkpXVCJ9.eyJhdWQiOiJhNDk2NTY1MC03MGVhLTRhZmMtOTBlOS01YTJmZjRmNzFjMjkiLCJzdWIiOiJlNGE2ZmNkZi0yYmE3LTQ3ZDQtYTA0NS0wNTAyZmI2ZTNmMGYiLCJpc3MiOiJodHRwczovL2hlbGxvY3VzdG9tZXIuY29tIiwiaWF0IjoxNjMxNzkyMjAzLCJleHAiOjE2NjMzMjgxNDUsIm1kIjp7InByIjp7ImExciI6ZmFsc2UsImFtciI6ZmFsc2UsInJiZSI6ZmFsc2UsInJ1ZSI6ZmFsc2UsInJyIjpmYWxzZSwiZ25wcyI6dHJ1ZSwiZ2NlcyI6dHJ1ZSwiZ2NzYXQiOnRydWUsImFhbnN3Ijp0cnVlfSwiaXAiOm51bGwsInRwaWRzIjpbIjIxY2VjYWI0LTljNjEtNDk0OC05MjNkLWQ2YjM4MjFiMzQzOSIsIjg1ZDNhYWQ3LWYxNTUtNDBhZS1iODM1LWU1MTM3ZDdiY2VjYiIsImQ1ZjA3NWI3LTg1NWUtNDQ1My04NmJiLWU4MTYxNDhmNzM2ZSJdfX0=.92NqRJ9qWh2WA8S/XbASdh+2lOPcrCMgoQKoy3+iCFR56ApiyQjW8hJ9b0URbkwKEvZKBv6pL4heNB9jc1NWyA==",
+//                companyId: "a4965650-70ea-4afc-90e9-5a2ff4f71c29",
+//                touchpointId: "21cecab4-9c61-4948-923d-d6b3821b3439"
+//            ),
+//            viewController: self,
+//            resultDelegate: onTouchPointResult
+//        )
     }
     
     private func onTouchPointResult(result: Result<QuestionModal, Error>) {
@@ -87,3 +108,4 @@ class ViewController: UIViewController {
     }
     
 }
+

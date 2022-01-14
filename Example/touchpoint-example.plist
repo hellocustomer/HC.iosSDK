@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HcAuthToken</key>
+	<string></string>
+	<key>HcCompanyId</key>
+	<string></string>
+	<key>HcTouchpoint1Id</key>
+	<string></string>
+	<key>HcTouchpoint2Id</key>
+	<string></string>
+</dict>
+</plist>

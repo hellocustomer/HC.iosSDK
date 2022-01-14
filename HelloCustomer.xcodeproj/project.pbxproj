@@ -24,6 +24,8 @@
 		AE8ABB6826B52C03005E56DF /* HCLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB6726B52C03005E56DF /* HCLogger.swift */; };
 		AE8ABB6F26B5712F005E56DF /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB6E26B5712F005E56DF /* SurveyView.swift */; };
 		AE8ABB7926B69CB2005E56DF /* TouchPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */; };
+		AE93E3472791C99B00831BED /* touchpoint.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE93E3462791C99B00831BED /* touchpoint.plist */; };
+		AE93E3492791F53100831BED /* touchpoint-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE93E3482791F53100831BED /* touchpoint-example.plist */; };
 		AEA19E87272C070E003C49C3 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA19E86272C070E003C49C3 /* UILabel.swift */; };
 		AEA9D34A26F5F98B00CE81C2 /* TouchpointConfigResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */; };
 		AEA9D34C26F5F9BC00CE81C2 /* UserLocaleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */; };
@@ -90,6 +92,8 @@
 		AE8ABB6726B52C03005E56DF /* HCLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLogger.swift; sourceTree = "<group>"; };
 		AE8ABB6E26B5712F005E56DF /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointService.swift; sourceTree = "<group>"; };
+		AE93E3462791C99B00831BED /* touchpoint.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = touchpoint.plist; sourceTree = "<group>"; };
+		AE93E3482791F53100831BED /* touchpoint-example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "touchpoint-example.plist"; sourceTree = "<group>"; };
 		AEA19E86272C070E003C49C3 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchpointConfigResolver.swift; sourceTree = "<group>"; };
 		AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocaleProvider.swift; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 				AEF5F0E626AC13F300D4822D /* Assets.xcassets */,
 				AEF5F0E826AC13F300D4822D /* LaunchScreen.storyboard */,
 				AEF5F0EB26AC13F300D4822D /* Info.plist */,
+				AE93E3462791C99B00831BED /* touchpoint.plist */,
+				AE93E3482791F53100831BED /* touchpoint-example.plist */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -523,8 +529,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF5F0EA26AC13F300D4822D /* LaunchScreen.storyboard in Resources */,
+				AE93E3472791C99B00831BED /* touchpoint.plist in Resources */,
 				AEA9D35526F75CBF00CE81C2 /* earwig.ttf in Resources */,
 				AEF5F0E726AC13F300D4822D /* Assets.xcassets in Resources */,
+				AE93E3492791F53100831BED /* touchpoint-example.plist in Resources */,
 				AEF5F0E526AC13F000D4822D /* Main.storyboard in Resources */,
 				AEA9D35726F75FDB00CE81C2 /* comici.ttf in Resources */,
 			);

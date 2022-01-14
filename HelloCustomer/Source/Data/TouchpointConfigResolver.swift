@@ -102,9 +102,9 @@ class TouchpointConfigResolver {
     
     private func mapQuestionType(type: String) -> QuestionType {
         switch type {
-        case "CES Score - 0-7 Question":
+        case "CES Score - 1-7 Question":
             return .ces
-        case "CSAT Score":
+        case "CSAT Score - 1-5 Question":
             return .csat
         case "NPS Score - 0-10 Question":
             return .nps

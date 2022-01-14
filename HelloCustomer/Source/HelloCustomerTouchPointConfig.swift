@@ -10,16 +10,16 @@ import UIKit
 public struct HelloCustomerTouchPointConfig {
     
     let authorization: String
-    let companyId: String
-    let touchpointId: String
+    let companyId: UUID
+    let touchpointId: UUID
     let questionFont: UIFont
     let hintFont: UIFont
     let questionaireUrlBuilder: QuestionaireUrlBuilder
 
     public init(
         authorization: String,
-        companyId: String,
-        touchpointId: String,
+        companyId: UUID,
+        touchpointId: UUID,
         questionFont: UIFont = UIFont.boldSystemFont(ofSize: 18),
         hintFont: UIFont = UIFont.systemFont(ofSize: 14),
         metadata: [String:String] = [:],

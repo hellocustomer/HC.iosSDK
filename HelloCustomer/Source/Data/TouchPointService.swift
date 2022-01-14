@@ -7,7 +7,7 @@
 
 import Foundation
 
-private let baseUrlPath = "proxy.hellocustomer.dev" //TODO replace when it will be on prod
+private let baseUrlPath = "api.hellocustomer.com"
 private let apiVersion = "V2.0"
 
 class TouchPointService {
@@ -94,7 +94,7 @@ class TouchPointService {
     
     private func buildQuestionsRequest(_ config: HelloCustomerTouchPointConfig) -> URLRequest {
         let userLanguageCode = userLocaleProvider.getUserLocaleCode()
-        let url = URL(string: "https:\(baseUrlPath)/\(apiVersion)/\(userLanguageCode)/company/\(config.companyId)/touchpoint/\(config.touchpointId)/question/GetTouchpointSurveyQuestions")!
+        let url = URL(string: "https://\(baseUrlPath)/\(apiVersion)/\(userLanguageCode)/company/\(config.companyId)/touchpoint/\(config.touchpointId)/question/GetTouchpointSurveyQuestions")!
         var request = URLRequest(url: url)
         request.setValue("basic \(config.authorization)", forHTTPHeaderField: "Authorization")
         return request
@@ -102,7 +102,7 @@ class TouchPointService {
     
     private func buildLanguageDesignRequest(_ config: HelloCustomerTouchPointConfig) -> URLRequest {
         let userLanguageCode = userLocaleProvider.getUserLocaleCode()
-        let url = URL(string: "https:\(baseUrlPath)/\(apiVersion)/\(userLanguageCode)/company/\(config.companyId)/touchpoint/\(config.touchpointId)/askanywheretemplate/GetTouchpointSurveyDesign")!
+        let url = URL(string: "https://\(baseUrlPath)/\(apiVersion)/\(userLanguageCode)/company/\(config.companyId)/touchpoint/\(config.touchpointId)/askanywheretemplate/GetTouchpointSurveyDesign")!
         var request = URLRequest(url: url)
         request.setValue("basic \(config.authorization)", forHTTPHeaderField: "Authorization")
         return request

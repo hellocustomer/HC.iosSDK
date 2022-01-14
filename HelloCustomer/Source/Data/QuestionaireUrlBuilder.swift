@@ -7,7 +7,7 @@
 
 import Foundation
 
-private let baseOpinionsUrl = "opinions-development.hellocustomer.com"
+private let baseOpinionsUrl = "opinions.hellocustomer.com"
 
 class QuestionaireUrlBuilder {
     
@@ -17,8 +17,8 @@ class QuestionaireUrlBuilder {
     let respondentLastName: String?
     let respondentEmailAddress: String?
     let authorization: String
-    let companyId: String
-    let touchpointId: String
+    let companyId: UUID
+    let touchpointId: UUID
     var userScore: Int?
     
     internal var questionaireLanguage: String!
@@ -30,8 +30,8 @@ class QuestionaireUrlBuilder {
         respondentLastName: String?,
         respondentEmailAddress: String?,
         authorization: String,
-        companyId: String,
-        touchpointId: String
+        companyId: UUID,
+        touchpointId: UUID
     ) {
         self.userLocaleProvider = userLocaleProvider
         self.metadata = metadata
@@ -57,7 +57,7 @@ class QuestionaireUrlBuilder {
         if let userScore = userScore {
             queryItems.append(URLQueryItem(name: "entry.score", value: String(userScore)))
         }
-        var urlComponents = URLComponents(string: "https://\(baseOpinionsUrl)/\(questionaireLanguage!)/AskAnywhereCampaign/\(companyId)/\(touchpointId)")!
+        var urlComponents = URLComponents(string: "https://\(baseOpinionsUrl)/\(questionaireLanguage!)/AskAnywhereCampaign/\(companyId.uuidString)/\(touchpointId.uuidString)")!
         urlComponents.queryItems = queryItems
 
         return urlComponents.url!
