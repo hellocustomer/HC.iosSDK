@@ -26,6 +26,8 @@
 		AE8ABB7926B69CB2005E56DF /* TouchPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */; };
 		AE93E3472791C99B00831BED /* touchpoint.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE93E3462791C99B00831BED /* touchpoint.plist */; };
 		AE93E3492791F53100831BED /* touchpoint-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE93E3482791F53100831BED /* touchpoint-example.plist */; };
+		AE93E34C27957D5C00831BED /* ApiErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93E34B27957D5C00831BED /* ApiErrorParser.swift */; };
+		AE93E34E27957DBF00831BED /* HelloCustomerSdkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93E34D27957DBF00831BED /* HelloCustomerSdkError.swift */; };
 		AEA19E87272C070E003C49C3 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA19E86272C070E003C49C3 /* UILabel.swift */; };
 		AEA9D34A26F5F98B00CE81C2 /* TouchpointConfigResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */; };
 		AEA9D34C26F5F9BC00CE81C2 /* UserLocaleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */; };
@@ -94,6 +96,8 @@
 		AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointService.swift; sourceTree = "<group>"; };
 		AE93E3462791C99B00831BED /* touchpoint.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = touchpoint.plist; sourceTree = "<group>"; };
 		AE93E3482791F53100831BED /* touchpoint-example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "touchpoint-example.plist"; sourceTree = "<group>"; };
+		AE93E34B27957D5C00831BED /* ApiErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorParser.swift; sourceTree = "<group>"; };
+		AE93E34D27957DBF00831BED /* HelloCustomerSdkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloCustomerSdkError.swift; sourceTree = "<group>"; };
 		AEA19E86272C070E003C49C3 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchpointConfigResolver.swift; sourceTree = "<group>"; };
 		AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocaleProvider.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		AE00B40B26AC1CEB002D200C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AE93E34A27956A6500831BED /* Error */,
 				AEDD251626AF19ED000A230C /* Model */,
 				AECFFC1426F5C90A00657C12 /* Data */,
 				AEE42E4126B08FA70019D2D8 /* Extensions */,
@@ -232,6 +237,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AE93E34A27956A6500831BED /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				AE93E34D27957DBF00831BED /* HelloCustomerSdkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		AEA9D35326F75CB100CE81C2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +262,7 @@
 				AEA9D34926F5F98B00CE81C2 /* TouchpointConfigResolver.swift */,
 				AEA9D34B26F5F9BC00CE81C2 /* UserLocaleProvider.swift */,
 				AEA9D34F26F744CF00CE81C2 /* QuestionaireUrlBuilder.swift */,
+				AE93E34B27957D5C00831BED /* ApiErrorParser.swift */,
 				AEB6E66D270F4BF200B75F2B /* ScoreButtonColorResolver.swift */,
 			);
 			path = Data;
@@ -724,6 +738,7 @@
 				AEA9D35026F744CF00CE81C2 /* QuestionaireUrlBuilder.swift in Sources */,
 				AEF5F11A26AC142200D4822D /* HelloCustomerTouchPoint.swift in Sources */,
 				AE8ABB6826B52C03005E56DF /* HCLogger.swift in Sources */,
+				AE93E34E27957DBF00831BED /* HelloCustomerSdkError.swift in Sources */,
 				AECFFC1B26F5CF6D00657C12 /* SurveyLanguageDesignDto.swift in Sources */,
 				AE00B44926AC3834002D200C /* ModalQuestionView.swift in Sources */,
 				AEA19E87272C070E003C49C3 /* UILabel.swift in Sources */,
@@ -734,6 +749,7 @@
 				AEB6E66E270F4BF200B75F2B /* ScoreButtonColorResolver.swift in Sources */,
 				AEA9D34A26F5F98B00CE81C2 /* TouchpointConfigResolver.swift in Sources */,
 				AECFFC1726F5CA2B00657C12 /* SurveyQuestionDto.swift in Sources */,
+				AE93E34C27957D5C00831BED /* ApiErrorParser.swift in Sources */,
 				AE00B41426AC1FEA002D200C /* QuestionModal.swift in Sources */,
 				AE00B46326AC5E01002D200C /* AbstractBottomSheetViewController.swift in Sources */,
 				AEDD251826AF19FC000A230C /* QuestionType.swift in Sources */,

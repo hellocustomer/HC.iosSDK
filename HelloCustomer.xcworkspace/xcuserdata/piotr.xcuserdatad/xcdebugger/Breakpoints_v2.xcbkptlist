@@ -71,22 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9D3D603D-E8E0-417D-A2F8-CF1B22BD9D7B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HelloCustomer/Source/Data/TouchPointService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "downloadTouchPointConfig(config:resultDelegate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2C04CA66-150A-40E0-BDCC-72979FB5B6C5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -98,6 +82,54 @@
             endingLineNumber = "64"
             landmarkName = "setupWebView()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HelloCustomer/Source/Data/TouchPointService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "downloadTouchPointQuestions(config:resultDelegate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe44a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HelloCustomer.TouchPointService.downloadTouchPointQuestions(config: HelloCustomer.HelloCustomerTouchPointConfig, resultDelegate: (Swift.Result&lt;HelloCustomer.SurveyDto, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HelloCustomer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1934">
+               </Location>
+               <Location
+                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe44a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HelloCustomer.TouchPointService.downloadTouchPointQuestions(config: HelloCustomer.HelloCustomerTouchPointConfig, resultDelegate: (Swift.Result&lt;HelloCustomer.SurveyDto, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HelloCustomer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "2054">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

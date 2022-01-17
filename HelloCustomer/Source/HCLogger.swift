@@ -9,13 +9,18 @@ import Foundation
 
 class HCLogger {
     
+    static var loggingEnabled = false
     static func logD(_ message: String) {
-        NSLog(message)
+        if loggingEnabled{
+            NSLog(message)
+        }
     }
     
     static func logE(_ error: Error,_ message: String = ""){
-        NSLog(message)
-        print(error)
+        if loggingEnabled {
+            NSLog(message)
+            print(error)
+        }
     }
         
 }

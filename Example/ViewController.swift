@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         case .failure(let error):
             let alertController = UIAlertController(
                 title: "An error occurred",
-                message: error.localizedDescription,
+                message: String(describing: error.self),
                 preferredStyle: .alert
             )
             let defaultAction = UIAlertAction(

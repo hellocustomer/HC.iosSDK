@@ -11,9 +11,10 @@ private let baseUrlPath = "api.hellocustomer.com"
 private let apiVersion = "V2.0"
 
 class TouchPointService {
-
+    
     private let userLocaleProvider: UserLocaleProvider
     private let touchpointConfigResolver: TouchpointConfigResolver
+    private let apiErrorParser = ApiErrorParser()
     
     internal init(
         userLocaleProvider: UserLocaleProvider = UserLocaleProvider(),
@@ -57,17 +58,26 @@ class TouchPointService {
         resultDelegate: @escaping (Result<SurveyDto, Error>) -> Void
     ) {
         HCLogger.logD("Downloading touchpoint questions")
-        URLSession.shared.dataTask(with: buildQuestionsRequest(config)) { (data, _, error) -> Void in
-            if error == nil && data != nil {
+        URLSession.shared.dataTask(with: buildQuestionsRequest(config)) { (data, response, sessionError) -> Void in
+            if sessionError == nil && data != nil {
                 do {
                     HCLogger.logD("Downloaded touchpoint questions successfully")
                     let decoder = JSONDecoder()
                     let survey = try decoder.decode([SurveyDto].self, from: data!)
                     resultDelegate(.success(survey.first!))
                 } catch {
+                    if let apiError = self.apiErrorParser.parse(data: data, response: response) {
+                        HCLogger.logE(apiError, "Downloaded touchpoint questions failrue")
+                        resultDelegate(.failure(apiError))
+                        return
+                    }
                     HCLogger.logE(error, "Downloaded touchpoint questions failrue")
                     resultDelegate(.failure(error))
                 }
+            } else if let sessionError = sessionError {
+                resultDelegate(.failure(sessionError))
+            } else {
+                resultDelegate(.failure(NSError(domain: "Unknows error", code: 1, userInfo: nil)))
             }
         }.resume()
     }
@@ -77,17 +87,26 @@ class TouchPointService {
         resultDelegate: @escaping (Result<[SurveyLanguageDesignDto], Error>) -> Void
     ) {
         HCLogger.logD("Downloading touchpoint designs")
-        URLSession.shared.dataTask(with: buildLanguageDesignRequest(config)) { (data, _, error) -> Void in
-            if error == nil && data != nil {
+        URLSession.shared.dataTask(with: buildLanguageDesignRequest(config)) { (data, response, sessionError) -> Void in
+            if sessionError == nil && data != nil {
                 do {
                     HCLogger.logD("Downloaded touchpoint designs")
                     let decoder = JSONDecoder()
                     let designs = try decoder.decode([SurveyLanguageDesignDto].self, from: data!)
                     resultDelegate(.success(designs))
                 } catch {
+                    if let apiError = self.apiErrorParser.parse(data: data, response: response) {
+                        HCLogger.logE(apiError, "Downloaded touchpoint designs failrue")
+                        resultDelegate(.failure(apiError))
+                        return
+                    }
                     HCLogger.logE(error, "Downloaded touchpoint designs failrue")
                     resultDelegate(.failure(error))
                 }
+            } else if let sessionError = sessionError {
+                resultDelegate(.failure(sessionError))
+            } else {
+                resultDelegate(.failure(NSError(domain: "Unknows error", code: 1, userInfo: nil)))
             }
         }.resume()
     }
