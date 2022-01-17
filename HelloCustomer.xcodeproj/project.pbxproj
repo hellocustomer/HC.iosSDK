@@ -24,7 +24,6 @@
 		AE8ABB6826B52C03005E56DF /* HCLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB6726B52C03005E56DF /* HCLogger.swift */; };
 		AE8ABB6F26B5712F005E56DF /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB6E26B5712F005E56DF /* SurveyView.swift */; };
 		AE8ABB7926B69CB2005E56DF /* TouchPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */; };
-		AE93E3472791C99B00831BED /* touchpoint.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE93E3462791C99B00831BED /* touchpoint.plist */; };
 		AE93E3492791F53100831BED /* touchpoint-example.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE93E3482791F53100831BED /* touchpoint-example.plist */; };
 		AE93E34C27957D5C00831BED /* ApiErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93E34B27957D5C00831BED /* ApiErrorParser.swift */; };
 		AE93E34E27957DBF00831BED /* HelloCustomerSdkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93E34D27957DBF00831BED /* HelloCustomerSdkError.swift */; };
@@ -94,7 +93,6 @@
 		AE8ABB6726B52C03005E56DF /* HCLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLogger.swift; sourceTree = "<group>"; };
 		AE8ABB6E26B5712F005E56DF /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		AE8ABB7826B69CB2005E56DF /* TouchPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointService.swift; sourceTree = "<group>"; };
-		AE93E3462791C99B00831BED /* touchpoint.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = touchpoint.plist; sourceTree = "<group>"; };
 		AE93E3482791F53100831BED /* touchpoint-example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "touchpoint-example.plist"; sourceTree = "<group>"; };
 		AE93E34B27957D5C00831BED /* ApiErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorParser.swift; sourceTree = "<group>"; };
 		AE93E34D27957DBF00831BED /* HelloCustomerSdkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloCustomerSdkError.swift; sourceTree = "<group>"; };
@@ -367,7 +365,6 @@
 				AEF5F0E626AC13F300D4822D /* Assets.xcassets */,
 				AEF5F0E826AC13F300D4822D /* LaunchScreen.storyboard */,
 				AEF5F0EB26AC13F300D4822D /* Info.plist */,
-				AE93E3462791C99B00831BED /* touchpoint.plist */,
 				AE93E3482791F53100831BED /* touchpoint-example.plist */,
 			);
 			path = Example;
@@ -543,7 +540,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF5F0EA26AC13F300D4822D /* LaunchScreen.storyboard in Resources */,
-				AE93E3472791C99B00831BED /* touchpoint.plist in Resources */,
 				AEA9D35526F75CBF00CE81C2 /* earwig.ttf in Resources */,
 				AEF5F0E726AC13F300D4822D /* Assets.xcassets in Resources */,
 				AE93E3492791F53100831BED /* touchpoint-example.plist in Resources */,
