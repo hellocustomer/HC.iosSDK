@@ -9,6 +9,7 @@ import Foundation
 
 private let baseUrlPath = "api.hellocustomer.com"
 private let apiVersion = "V2.0"
+private let campaignTypeMobile = 4
 
 class TouchPointService {
     
@@ -33,6 +34,10 @@ class TouchPointService {
             resultDelegate: { result in
                 switch result {
                 case .success(let question):
+                    if(question.campaignType != nil && question.campaignType != campaignTypeMobile){
+                        resultDelegate(.failure(HelloCustomerSdkError.touchpointCampaignIsNotMobileTypeException))
+                        return
+                    }
                     self.downloadTouchPointDesigns(config: config, resultDelegate: { designsResult in
                         switch designsResult {
                         case .success(let designs):

@@ -11,6 +11,7 @@ struct SurveyDto: Codable {
     let campaignUniqueID: String
     let hasbeenArchived: Bool
     let sortOrder: Int
+    let campaignType: Int?
     let items: [SurveyQuestionDto]
 
     enum CodingKeys: String, CodingKey {
@@ -18,5 +19,6 @@ struct SurveyDto: Codable {
         case hasbeenArchived = "hasbeenArchived"
         case sortOrder = "sortOrder"
         case items = "items"
+        case campaignType = "campaign_CampaignType_ID"
     }
 }

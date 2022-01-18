@@ -46,8 +46,8 @@
             filePath = "HelloCustomer/Source/HelloCustomerTouchPoint.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "loadInternal(config:viewController:resultDelegate:service:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,13 +94,13 @@
             filePath = "HelloCustomer/Source/Data/TouchPointService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "downloadTouchPointQuestions(config:resultDelegate:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe44a8"
+                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe4575"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -110,12 +110,12 @@
                   urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "1934">
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1951">
                </Location>
                <Location
-                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe44a8"
+                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe4575"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -125,9 +125,24 @@
                   urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "2054">
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "2250">
+               </Location>
+               <Location
+                  uuid = "0821B0BA-04DF-4EA7-B617-171AB80355D2 - fcf6a3e0bbbe4575"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in HelloCustomer.TouchPointService.downloadTouchPointQuestions(config: HelloCustomer.HelloCustomerTouchPointConfig, resultDelegate: (Swift.Result&lt;HelloCustomer.SurveyDto, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "HelloCustomer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piotr/Work/iOS/HelloCustomerSdk/HC.iosSDK/HelloCustomer/Source/Data/TouchPointService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1552">
                </Location>
             </Locations>
          </BreakpointContent>
