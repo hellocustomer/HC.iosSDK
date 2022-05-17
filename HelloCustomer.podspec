@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "HelloCustomer"
-  s.version       = "0.0.2"
+  s.version       = "1.0.0"
   s.summary       = "iOS SDK for Hello Customer"
   s.description   = "iOS SDK for Hello Customer, including example app"
   s.homepage      = "https://github.com/hellocustomer/HC.iosSDK"

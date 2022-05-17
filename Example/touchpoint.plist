@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>HcTouchpoint2Id</key>
+    <string>7e83dcf4-a7e7-4fdc-9e1e-cb63f86c2473</string>
+    <key>HcTouchpoint1Id</key>
+    <string>df7ff22b-c819-427a-8bbc-c0f5fd5bafc1</string>
+    <key>HcCompanyId</key>
+    <string>40c03c81-9f39-476d-9a4b-838a282eec7f</string>
+    <key>HcAuthToken</key>
+    <string>eyJhbGciOiAiSFM1MTIiLCAidHlwIjogIkpXVCJ9.eyJhdWQiOiI0MGMwM2M4MS05ZjM5LTQ3NmQtOWE0Yi04MzhhMjgyZWVjN2YiLCJzdWIiOiIyNjkzNzNmZC1hM2M4LTQ1YmQtODlhMS1kY2QxMmY1ZjRmYzAiLCJpc3MiOiJodHRwczovL2hlbGxvY3VzdG9tZXIuY29tIiwiaWF0IjoxNjQyMDAyNjU3LCJleHAiOjE2NzM1Mzg2NTMsIm1kIjp7InByIjp7ImExciI6ZmFsc2UsImFtciI6ZmFsc2UsInJiZSI6ZmFsc2UsInJ1ZSI6ZmFsc2UsInJyIjpmYWxzZSwiZ25wcyI6dHJ1ZSwiZ2NlcyI6dHJ1ZSwiZ2NzYXQiOnRydWUsImFhbnN3IjpmYWxzZX0sImlwIjpudWxsLCJ0cGlkcyI6WyIyMjY5M2E3NS0yZmJjLTQ4MWItOWJiMy00ZGIwZjJlMmJmZmUiLCJjNDA3MmRiMC1kMjA2LTQ2Y2ItYTZhYi0wZDgxYTQzYzhkY2YiLCIyZTAxYTZlZS04MDEwLTQ1NjgtOTViYi01ZjQxMjkxZTJhM2EiLCIzMWJhZWQ1Mi1iY2UxLTRjN2YtOWZiZS1iNjI5MDVjN2ViMzYiLCJiYjUxNTgxMS0xODY2LTQ5YjgtOGY2OS1kZjRjYTk5MWZlM2IiLCI3ZTgzZGNmNC1hN2U3LTRmZGMtOWUxZS1jYjYzZjg2YzI0NzMiLCJkZjdmZjIyYi1jODE5LTQyN2EtOGJiYy1jMGY1ZmQ1YmFmYzEiLCJlNGQ4NGVmYy05MTZjLTRmODctODU4Ny1kZWFiZWU1YmE0N2YiXX19.nM5zZZCPtJrRusowpsPZDMnzLNaDPX4EkcRGwQoultDr+vpwnqQ8RfKXKjtdfa/XuB/ff63UF9lLNPnSN2ubDA==</string>
+</dict>
+</plist>
