@@ -14,7 +14,7 @@ Min ios version: iOS 12
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate HC.iosSDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'HelloCustomer', '~> 0.0.1'
+pod 'HelloCustomer', '~> 1.0.0'
 ```
 
 ## Usage
